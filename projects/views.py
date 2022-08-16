@@ -14,7 +14,9 @@ def project_index(request):
 
 
 def project_detail(request, pk):
-    project = Project.objects.filter(pk=pk)
+    # objects.get will get a object, objects.filter will get a queryset
+    project = Project.objects.get(pk=pk)
+    print(project.title)
     context = {
         'project': project
     }
